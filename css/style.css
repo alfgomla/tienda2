@@ -56,6 +56,10 @@ button {
     border-radius: 8px;
 }
 
+.precio {
+    color: red;
+}
+
 /* media query Tablet */
 @media (min-width: 600px) {
     section {
