@@ -1,0 +1,19 @@
+[
+  {
+    "name": "SHAMPOO DI ARGAN",
+    "description": "Nutrición intensa, lava eﬁcaz y suavemente; aporta brillo e hidratación.",
+    "image": "di_Argan.jpg",
+    "hairType": "Deshidratado",
+    "group": "HIDRATACIÓN",
+    "presentations": [
+      "250ml",
+      "500ml",
+      "1000ml"
+    ],
+    "prices": [
+      245,
+      325,
+      510
+    ]
+  }
+]
