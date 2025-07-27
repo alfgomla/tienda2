@@ -10,7 +10,7 @@ a{
 
 .precio {
     font-size: 1.5em;
-    color: rgb(3, 2, 55);
+    color: rgb(10, 8, 150);
 }
 
 .descripcion {
@@ -20,7 +20,7 @@ a{
 }   
 header{
 	padding: 15px 0;
-	position: fixed;
+	/*position: fixed;*/
 	top: 0;
 	left: 0;
 	z-index: 2;
@@ -48,10 +48,13 @@ header .container .hamb{
 	display: none;
 }
 
+h1, h2 {
+    margin: 0;
+}
 
 .barra-footer{
     color: whitesmoke;
-	background-color: black;
+	background-color: #007BBF;
 	text-align: center;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -60,17 +63,18 @@ header .container .hamb{
 }
 
 .section-saludo {
+    font-size: .5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 90px;
     background-color: #007BBF;
     color: white;  
     font-size: 18px;
     font-weight: bold;
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+
 }
 
 .section-articulos {
@@ -113,17 +117,23 @@ img:hover {
     cursor: pointer
 }
 
-
-
 button {
-    background-color: #007BBF;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
+    background-color: #137ae2; /* Color verde */
+    /*alinerar el boton al centro*/
+    display: block;
+    margin: 12px auto; /* Centra el botón horizontalmente */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    width: 50%; /* Botón ocupa todo el ancho del artículo */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s, width 0.3s; /* Transiciones suaves */
 }
+button:hover {
+    background-color: #0f5bb3; /* Color más oscuro al pasar el cursor */
+    width: 100%;
+}  
 
 .texto-parpadeante {
     font-size: 1.5em;
