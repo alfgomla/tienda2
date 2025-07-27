@@ -1,48 +1,57 @@
-const section = document.querySelector("section");
+// Obtener el formulario y agregar un event listener
+const form = document.querySelector('.login-form');
 
-const requestURL = "https://fakestoreapi.com/products";
+form.addEventListener('submit', function(event) {
+    // Prevenir el comportamiento por defecto del formulario
+    event.preventDefault();
+    
+    // Obtener los valores después de que el usuario los haya ingresado
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-const request = new XMLHttpRequest();
+    console.log("Username:", username);
+    console.log("Password:", password);
+    console.log("listo");
 
-request.open("GET", requestURL);
+    const credenciales = {
+        username: username,
+        password: password
+    };
 
-request.responseType = "json";
-request.send();
+    fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credenciales)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Respuesta del servidor:", data);
+        
+        // Mostrar mensaje de éxito o error
+        const mensaje = document.getElementById("mensaje");
+        if (data.token) {
+            //mensaje.textContent = "Login exitoso!";
+            //mensaje.style.color = "green";
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("username", username);
 
-request.onload = function () {
-    const productos = request.response;
-    pintarProductos(productos);
-}
-
-function pintarProductos(productos) {
-    for(const producto of productos) {
-        const articulo = document.createElement('article');
-
-        const img = document.createElement('img');
-        img.src = producto.image;
-        img.alt = producto.title;
-
-        const titulo = document.createElement('h2');
-        titulo.textContent = producto.title;
-
-        const precio = document.createElement('p');
-        precio.className = 'precio';
-        precio.textContent = producto.price;
-
-        const desc = document.createElement('p');
-        desc.textContent = producto.description;
-
-        const botonComprar = document.createElement('button');
-        botonComprar.innerText = "Comprar";
-
-        articulo.appendChild(img);
-
-        articulo.appendChild(titulo);
-        articulo.appendChild(precio);
-        articulo.appendChild(desc);
-        articulo.appendChild(botonComprar);
-
-        section.appendChild(articulo);
-
-    }
-}
+            setTimeout(() => {
+                console.log(window.location.href);
+                window.location.href = "tienda.html";
+            }, 1000);
+            mensaje.textContent = "Login exitoso! Redirigiendo...";
+            mensaje.style.color = "green";        
+        } else {
+            mensaje.textContent = "Credenciales incorrectas";
+            mensaje.style.color = "red";
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        const mensaje = document.getElementById("mensaje");
+        mensaje.textContent = "Error de conexión";
+        mensaje.style.color = "red";
+    });
+});

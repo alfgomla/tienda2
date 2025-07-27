@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/tienda.css">
+    <script src="https://kit.fontawesome.com/6007cf0724.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <img src="imagenes/logo.svg" class="logo">
+            </a>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contactenos">Contáctenos</a>
+            </nav>
+            <a href="#" class="hamb"><i class="fas fa-bars"></i></a>            
+        </div>
+    </header>
+    <main>
+        <section class="section-saludo">
+            <h1>¡Hola, <span id="username"></span>!</h1>
+            <h2>Bienvenido a nuestra Tienda, checa las novedades</h2>
+        </section>
+
+        <section class="section-articulos"></section>
+
+    </main>
+    
+
+    <div class="barra-footer">
+        &copy; Derechos Reservados - 2025
+        <p>Design - <a class="credit" href="https://alfgomla.github.io/alfgomla/" target="_blank">Alfgomla</a></p>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/tienda.js"></script>
+    <script src="js/amb-responsive.js"></script>
+    
+    <script>
+        const username = localStorage.getItem("username");
+        document.getElementById("username").textContent = username;
+    </script>
+</body>
+</html>
