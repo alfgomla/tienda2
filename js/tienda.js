@@ -28,8 +28,9 @@ function pintarProductos(productos) {
         const precio = document.createElement('p');
         const rnd = Math.floor(Math.random() * 3) + 1; // Genera un número aleatorio entre 1 y 3
         if (rnd === 1) {
-            precio.className = 'texto-parpadeante';
-            precio.textContent = "¡¡¡ O f e r t a !!! " + producto.price;
+            //precio.className = 'texto-parpadeante';
+            precio.className = 'texto-parpadeante-opacidad';
+            precio.textContent = "¡¡¡ O f e r t a !!!  $" + producto.price;
         }else{
             precio.className = 'precio';
             precio.textContent = "$ " + producto.price;
@@ -37,6 +38,7 @@ function pintarProductos(productos) {
 
         const desc = document.createElement('p');
         desc.textContent = producto.description;
+        desc.className = 'descripcion';
 
         const botonComprar = document.createElement('button');
         botonComprar.innerText = "Comprar";

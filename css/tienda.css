@@ -101,7 +101,8 @@ article {
 
 
 article img {
-    object-fit: cover; /* Mantiene la proporción de la imagen */
+    /*object-fit: cover;  Mantiene la proporción de la imagen */
+    object-fit: contain;
     display: block;
     height: 200px;
     width: 50%;
@@ -111,9 +112,15 @@ article img {
 
 img {
     transition: transform 0.4s ease;
+    border: 1px solid #ffffff; /* Borde gris claro */
+    border-radius: 5%; /* Bordes redondeados */
 }
 img:hover {
-    transform: scale(1.1,1.1);
+    transform: scale(1.8,1.8);
+    border: 1px solid #000000;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
     cursor: pointer
 }
 
@@ -142,6 +149,25 @@ button:hover {
     animation: parpadeo-color 1s infinite alternate; /* Nombre, duración, repetición, dirección */
 }
 
+.texto-parpadeante-opacidad {
+    color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    animation: parpadeo-opacidad 1s infinite;
+}
+
+@media (max-width: 1200px) {
+    .section-articulos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 1024px) {
+    .section-articulos {
+        grid-template-columns:  repeat(2, 1fr);
+    }
+
+}
 
 /* media query Tablet */
 @media (max-width: 1024px) {
@@ -225,4 +251,10 @@ button:hover {
     100% {
         color: rgb(247, 255, 2); /* Color final */
     }
+}
+
+@keyframes parpadeo-opacidad {
+    0% { opacity: 1; } /* Completamente visible */
+    50% { opacity: 0; } /* Completamente transparente */
+    100% { opacity: 1; } /* Vuelve a ser visible */
 }
